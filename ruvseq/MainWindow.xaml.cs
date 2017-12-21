@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
+using RProcesses;
 
 namespace ruvseq
 {
@@ -27,19 +28,17 @@ namespace ruvseq
             InitializeComponent();
         }
 
-
-
+        string fullPath;
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            string fullPath;
 
-            ofd.Filter = "csv files (*.csv)|*.txt|All files (*.*)|*.*";
+            ofd.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*";
             ofd.RestoreDirectory = true;
             if(ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 fullPath = ofd.FileName;
-                string[] cell_types = DataProcessing.DataProcessing.ReadCSV(fullPath);
+                string[] cell_types = DataProcessing.ReadCSV(fullPath);
                 for(int i = 1; i < cell_types.Length; ++i)
                 {
                     group1.Items.Add(cell_types[i]);
@@ -47,27 +46,27 @@ namespace ruvseq
             }
         }
 
-        private void group1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void ruvseq_Click(object sender, RoutedEventArgs e)
         {
-            if (group1.Items.Count == 0)
-                return;
-            int index = System.Windows.Forms.IndexFromPoint(group1, e.X, e.Y);
-
+            List<string> g1 = new List<string>();
+            for (int i = 0; i < group1.Items.Count; ++i)
+                g1.Add((string)group1.Items.GetItemAt(i));
+            List<string> g2 = new List<string>();
+            for (int i = 0; i < group2.Items.Count; ++i)
+                g2.Add((string)group2.Items.GetItemAt(i));
+            RProcesses.RUVseq process = new RUVseq(fullPath,g1, g2);
         }
     }
 
-}
-
-namespace DataProcessing
-{
     public class DataProcessing
     {
         public DataProcessing() { }
         public static string[] ReadCSV(string fileName)
         {
-            IEnumerable<string> result = File.ReadLines(System.IO.Path.ChangeExtension(fileName,".csv"));
+            IEnumerable<string> result = File.ReadLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
             string toSplit = result.First();
             return toSplit.Split(',');
         }
     }
 }
+

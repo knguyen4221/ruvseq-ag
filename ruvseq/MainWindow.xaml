@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ruvseq"
+        xmlns:dd="urn:gong-wpf-dragdrop"
+
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Canvas>
@@ -12,7 +14,11 @@
                 <MenuItem Header="Open" StaysOpenOnClick="True" Click="MenuItem_Click"/>
             </MenuItem>
         </Menu>
-        <ListBox x:Name="group1" Height="153" Canvas.Top="115" Width="107" Canvas.Left="10" AllowDrop="True" MouseDown="group1_MouseDown"/>
-        <ListBox x:Name="group2" Height="153" Canvas.Left="131" Canvas.Top="115" Width="107" AllowDrop="True" MouseDown="group2_MouseDown"/>
+        <ListBox x:Name="group1" Height="153" Canvas.Top="43" Width="107" Canvas.Left="10" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True"
+                 SelectionMode="Extended"/>
+        <ListBox x:Name="group2" Height="153" Canvas.Left="122" Canvas.Top="43" Width="107" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True"
+                 SelectionMode="Extended"/>
+        <Button x:Name="ruvseq_start" Content="Go" Canvas.Left="10" Canvas.Top="209" Width="75"
+                Click="ruvseq_Click"/>
     </Canvas>
 </Window>
