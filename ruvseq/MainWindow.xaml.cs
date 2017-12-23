@@ -29,7 +29,13 @@ namespace ruvseq
         }
 
         string fullPath;
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+
+        private void open_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+            e.Handled = true;
+        }
+        private void open_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
@@ -44,6 +50,7 @@ namespace ruvseq
                     group1.Items.Add(cell_types[i]);
                 }
             }
+            e.Handled = true;
         }
 
         private void ruvseq_Click(object sender, RoutedEventArgs e)
@@ -54,7 +61,13 @@ namespace ruvseq
             List<string> g2 = new List<string>();
             for (int i = 0; i < group2.Items.Count; ++i)
                 g2.Add((string)group2.Items.GetItemAt(i));
-            RProcesses.RUVseq process = new RUVseq(fullPath,g1, g2);
+            string outFile = outputFileName.Text;
+            string currentDirectory = Directory.GetCurrentDirectory();
+            if (!Directory.Exists(currentDirectory + "\\ruvseq_output"))
+            {
+                Directory.CreateDirectory(currentDirectory + "\\ruvseq_output");
+            }
+            RProcesses.RUVseq process = new RUVseq(fullPath,g1, g2, outFile, currentDirectory+"\\ruvseq_output");
         }
     }
 
