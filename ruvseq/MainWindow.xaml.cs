@@ -67,7 +67,7 @@ namespace ruvseq
             {
                 Directory.CreateDirectory(currentDirectory + "\\ruvseq_output");
             }
-            RProcesses.RUVseq process = new RUVseq(fullPath,g1, g2, outFile, currentDirectory+"\\ruvseq_output");
+            RUVseq process = new RUVseq(fullPath,g1, g2, outFile, currentDirectory+"\\ruvseq_output");
         }
     }
 
