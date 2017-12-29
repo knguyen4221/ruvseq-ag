@@ -20,15 +20,15 @@
                 <MenuItem Command="Open"/>
             </MenuItem>
         </Menu>
-        <ListBox x:Name="group1" Height="153" Canvas.Top="69" Width="107" Canvas.Left="10" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True"
-                 SelectionMode="Extended"/>
-        <ListBox x:Name="group2" Height="153" Canvas.Left="122" Canvas.Top="69" Width="107" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True"
+        <ListBox x:Name="group1" Height="153" Canvas.Top="69" Width="131" Canvas.Left="10" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True"
+                 SelectionMode="Extended" MouseDoubleClick="group1_doubleClick"/>
+        <ListBox x:Name="group2" Height="153" Canvas.Left="146" Canvas.Top="69" Width="136" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True"
                  SelectionMode="Extended"/>
         <Button x:Name="ruvseq_start" Content="Go" Canvas.Left="10" Canvas.Top="247" Width="75"
                 Click="ruvseq_Click"/>
-        <Label Content="Group 2" Canvas.Left="122" Canvas.Top="43"/>
+        <Label Content="Group 2" Canvas.Left="146" Canvas.Top="43"/>
         <Label Content="Group 1" Canvas.Left="10" Canvas.Top="43"/>
-        <TextBox x:Name="outputFileName" Height="15" TextWrapping="Wrap" Text="Output file name" Width="107" Canvas.Left="10" Canvas.Top="227" FontSize="10"/>
+        <TextBox x:Name="outputFileName" Text="Output prefix" Height="15" Width="107" Canvas.Left="10" Canvas.Top="227" FontSize="10"/>
         <TextBlock TextWrapping="Wrap" Text="RUVSeq" Canvas.Top="27" Canvas.Left="10"/>
     </Canvas>
 </Window>

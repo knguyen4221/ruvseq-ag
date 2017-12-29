@@ -28,7 +28,7 @@ namespace ruvseq
             InitializeComponent();
         }
 
-        string fullPath;
+        private string fullPath;
 
         private void open_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -67,7 +67,31 @@ namespace ruvseq
             {
                 Directory.CreateDirectory(currentDirectory + "\\ruvseq_output");
             }
-            RUVseq process = new RUVseq(fullPath,g1, g2, outFile, currentDirectory+"\\ruvseq_output");
+            ruvseq_run(g1, g2, outFile, currentDirectory);
+        }
+
+        private void ruvseq_run(List<string> g1, List<string> g2, string outFile, string currentDirectory)
+        {
+            RUVseq process = new RUVseq(fullPath, outFile, currentDirectory + "\\ruvseq_output");
+            process.run_ruvseq(g1, g2);
+        }
+
+        private void input1_placeHolder(object sender, RoutedEventArgs e)
+        {
+            if(outputFileName.Text == "Output prefix")
+            {
+                outputFileName.Text = "";
+            }
+
+        }
+
+        private void group1_doubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var list = (System.Windows.Controls.ListBox) sender;
+            var selected = list.SelectedItem;
+            group2.Items.Add(selected);
+            group1.Items.Remove(selected);
+
         }
     }
 
