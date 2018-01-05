@@ -24,7 +24,7 @@ namespace RProcesses
             System.Environment.SetEnvironmentVariable("PATH", 
                 string.Format("{0}{1}{2}", rPath, System.IO.Path.PathSeparator, System.Environment.GetEnvironmentVariable("PATH")));
             REngine.SetEnvironmentVariables();
-            Console.WriteLine(System.Environment.GetEnvironmentVariable("PATH"));
+            //Console.WriteLine(System.Environment.GetEnvironmentVariable("PATH"));
             parse = rPath.Split('\\');
             rPath = string.Join("\\\\", parse);
         }
@@ -88,7 +88,7 @@ namespace RProcesses
                 group2[i] = group2[i].Replace('-', '.');
             foreach (var name in colNames)
             {
-                Console.WriteLine(name);
+                //Console.WriteLine(name);
                 if (group1.Contains(name.ToString()))
                 {
                     result.Add("G1");

@@ -12,17 +12,18 @@ namespace ruvseq
     {
         private ICommand _changePageCommand;
 
-        private GalaSoft.MvvmLight.ViewModelBase _currentPageViewModel;
-        private List<GalaSoft.MvvmLight.ViewModelBase> _pageViewModels;
+        private ModeViewModel _currentPageViewModel;
+        private List<ModeViewModel> _pageViewModels;
 
         public ApplicationViewModel()
         {
             PageViewModels.Add(new RUVSeqViewModel());
+            PageViewModels.Add(new DESeq2.DESeq2ViewModel());
 
             CurrentPageViewModel = PageViewModels[0];
         }
 
-        public GalaSoft.MvvmLight.ViewModelBase CurrentPageViewModel
+        public ModeViewModel CurrentPageViewModel
         {
             get
             {
@@ -38,12 +39,12 @@ namespace ruvseq
             }
         }
 
-        public List<GalaSoft.MvvmLight.ViewModelBase> PageViewModels
+        public List<ModeViewModel> PageViewModels
         {
             get
             {
                 if (_pageViewModels == null)
-                    _pageViewModels = new List<GalaSoft.MvvmLight.ViewModelBase>();
+                    _pageViewModels = new List<ModeViewModel>();
                 return _pageViewModels;
             }
         }
@@ -54,15 +55,22 @@ namespace ruvseq
             {
                 if(_changePageCommand == null)
                 {
-                    _changePageCommand = new GalaSoft.MvvmLight.Command.RelayCommand<GalaSoft.MvvmLight.ViewModelBase>((p) => ChangeViewModel(p));
+                    _changePageCommand = new GalaSoft.MvvmLight.Command.RelayCommand<ModeViewModel>((p) => ChangeViewModel(p));
                 }
                 return _changePageCommand;
             }
         }
 
-        private void ChangeViewModel(GalaSoft.MvvmLight.ViewModelBase viewModel)
+        private void ChangeViewModel(ModeViewModel viewModel)
         {
-            _currentPageViewModel = viewModel;
+            CurrentPageViewModel = viewModel;
+            foreach(var vm in PageViewModels)
+            {
+                if(vm != viewModel)
+                {
+                    vm.IsSelected = false;
+                }
+            }
         }
     }
 

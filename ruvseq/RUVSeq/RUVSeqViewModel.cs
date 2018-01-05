@@ -13,7 +13,7 @@ using GalaSoft.MvvmLight;
 
 namespace ruvseq
 {
-    public class RUVSeqViewModel : ViewModelBase
+    public class RUVSeqViewModel : ModeViewModel
     {
         private RUVSeqModel _ruvseq_model;
         private ObservableCollection<string> vm_g1, vm_g2;
@@ -24,7 +24,7 @@ namespace ruvseq
         private ICommand _g1doubleClickCommand;
         private ICommand _g2doubleClickCommand;
         private ICommand _openFileCommand { get; set; }
-
+        
 
         public RUVSeqModel ruvseq_model
         {
@@ -199,12 +199,17 @@ namespace ruvseq
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
+
             ofd.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*";
             ofd.RestoreDirectory = true;
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 vm_inputFile = ofd.FileName;
                 string[] cell_types = ReadCSV(vm_inputFile);
+                if (vm_g1.Count != 0)
+                    vm_g1.Clear();
+                if (vm_g2.Count != 0)
+                    vm_g2.Clear();
                 for (int i = 1; i < cell_types.Length; ++i)
                 {
                     g1.Add(cell_types[i]);
@@ -230,6 +235,8 @@ namespace ruvseq
             vm_g1 = new ObservableCollection<string>();
             vm_g2 = new ObservableCollection<string>();
             outputPrefix = "Output Prefix";
+            Name = "RUVSeq";
+            IsSelected = true;
         }
     }
 }

@@ -6,6 +6,7 @@ C:\Users\Ken\workspace\ruvseq-ag\ruvseq\RProcesses\bin\Debug\RDotNet.NativeLibra
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\RProcesses\bin\Debug\DynamicInterop.xml
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\RProcesses\bin\Debug\RDotNet.xml
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\RProcesses\bin\Debug\RDotNet.NativeLibrary.xml
+C:\Users\Ken\workspace\ruvseq-ag\ruvseq\RProcesses\obj\Debug\RProcesses.csprojResolveAssemblyReference.cache
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\RProcesses\obj\Debug\RProcesses.csproj.CoreCompileInputs.cache
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\RProcesses\obj\Debug\RProcesses.dll
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\RProcesses\obj\Debug\RProcesses.pdb
