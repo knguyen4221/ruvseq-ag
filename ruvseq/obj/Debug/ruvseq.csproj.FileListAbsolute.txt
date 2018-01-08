@@ -19,11 +19,9 @@ C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\GalaSoft.MvvmLight.Extras.dll
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\GalaSoft.MvvmLight.Platform.dll
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\GongSolutions.Wpf.DragDrop.dll
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\RProcesses.dll
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\System.Windows.Interactivity.dll
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\RDotNet.dll
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\RDotNet.NativeLibrary.dll
-C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\RProcesses.pdb
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\DynamicInterop.xml
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\GalaSoft.MvvmLight.pdb
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\GalaSoft.MvvmLight.xml

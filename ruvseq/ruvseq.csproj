@@ -72,6 +72,12 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
+    <Reference Include="RDotNet, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\R.NET.1.7.0\lib\net40\RDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="RDotNet.NativeLibrary, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\R.NET.1.7.0\lib\net40\RDotNet.NativeLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -107,11 +113,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ApplicationViewModel.cs" />
+    <Compile Include="DESeq2\DESeq2.cs" />
     <Compile Include="DESeq2\DESeq2View.xaml.cs">
       <DependentUpon>DESeq2View.xaml</DependentUpon>
     </Compile>
     <Compile Include="DESeq2\DESeq2ViewModel.cs" />
     <Compile Include="ModeViewModel.cs" />
+    <Compile Include="RUVSeq\RUVSeq.cs" />
     <Compile Include="RUVSeq\RUVSeqView.xaml.cs">
       <DependentUpon>RUVSeqView.xaml</DependentUpon>
     </Compile>
@@ -156,12 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="RProcesses\RProcesses.csproj">
-      <Project>{a0c4eb0b-ba3b-4c8c-af49-9c972d15b0a9}</Project>
-      <Name>RProcesses</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

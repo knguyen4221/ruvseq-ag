@@ -1,5 +1,4 @@
-﻿using RProcesses;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -19,11 +18,13 @@ namespace ruvseq
         private ObservableCollection<string> vm_g1, vm_g2;
         private string vm_outputPrefix, vm_inputFile, vm_result;
         private string _selectedItem1, _selectedItem2;
+        private string _outputDir = Directory.GetCurrentDirectory();
 
         private ICommand _runRUVSeqCommand;
         private ICommand _g1doubleClickCommand;
         private ICommand _g2doubleClickCommand;
         private ICommand _openFileCommand { get; set; }
+        private ICommand _specifyOutputCommand;
         
 
         public RUVSeqModel ruvseq_model
@@ -129,6 +130,31 @@ namespace ruvseq
             }
         }
 
+        public string OutputDirectory
+        {
+            get { return this._outputDir; }
+            set
+            {
+                if(value != this._outputDir)
+                {
+                    this._outputDir = value;
+                    RaisePropertyChanged("OutputDirectory");
+                }
+            }
+        }
+
+        public ICommand SpecifyOutput
+        {
+            get
+            {
+                if(this._specifyOutputCommand == null)
+                {
+                    this._specifyOutputCommand = new RelayCommand(specifyOutput);
+                }
+                return this._specifyOutputCommand;
+            }
+        }
+
         public ICommand OpenMatrixCommand
         {
             get
@@ -191,7 +217,7 @@ namespace ruvseq
         private void Start_Ruvseq()
         {
             Result = "Loading";
-            string ret = ruvseq_run(inputFile, g1.ToList(), g2.ToList(), outputPrefix, Directory.GetCurrentDirectory());
+            string ret = ruvseq_run(inputFile, g1.ToList(), g2.ToList(), outputPrefix, OutputDirectory);
             Result = ret;
         }
 
@@ -217,6 +243,15 @@ namespace ruvseq
             }
         }
 
+        private void specifyOutput()
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if(fbd.ShowDialog() == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+            {
+                OutputDirectory = fbd.SelectedPath;
+            }
+        }
+
         private string[] ReadCSV(string fileName)
         {
             IEnumerable<string> result = File.ReadLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
@@ -224,9 +259,9 @@ namespace ruvseq
             return toSplit.Split(',');
         }
 
-        private string ruvseq_run(string fullPath, List<string> g1, List<string> g2, string outFile, string currentDirectory)
+        private string ruvseq_run(string fullPath, List<string> g1, List<string> g2, string outFile, string outputDirectory)
         {
-            RUVseq process = new RUVseq(fullPath, outFile, currentDirectory + "\\ruvseq_output");
+            RUVSeq process = new RUVSeq(fullPath, outFile, outputDirectory);
             return process.run_ruvseq(g1, g2);
         }
 

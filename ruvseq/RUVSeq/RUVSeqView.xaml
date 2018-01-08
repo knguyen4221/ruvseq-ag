@@ -25,6 +25,8 @@
         <TextBox x:Name="outputFileName" Text="{Binding outputPrefix}" Height="15" Width="107" Canvas.Left="10" Canvas.Top="226" FontSize="10"/>
         <TextBlock TextWrapping="Wrap" Text="RUVSeq" Canvas.Top="25" Canvas.Left="10"/>
         <Button Content="Open matrix" Command="{Binding Path=OpenMatrixCommand}" Canvas.Left="10" Canvas.Top="271" Width="75"/>
-        <Label x:Name="result" Content="{Binding Result}" Canvas.Left="287" Canvas.Top="49" Height="217" Width="192"/>
+        <Label x:Name="result" Content="{Binding Result}" Canvas.Left="287" Canvas.Top="122" Height="144" Width="192"/>
+        <TextBox Height="24" Canvas.Left="287" Text="{Binding OutputDirectory}" Canvas.Top="68" Width="132"/>
+        <Button Content="Specify output directory" Command="{Binding Path=SpecifyOutput}" Canvas.Left="287" Canvas.Top="97" Width="132"></Button>
     </Canvas>
 </UserControl>

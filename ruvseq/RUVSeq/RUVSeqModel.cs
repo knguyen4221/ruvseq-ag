@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 using GalaSoft;
-using RProcesses;
 
 namespace ruvseq
 {
