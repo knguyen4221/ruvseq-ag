@@ -204,6 +204,7 @@ namespace ruvseq
 
         private void changeGroup1to2()
         {
+            Console.WriteLine(Group1SelectedItem.ToString());
             g2.Add(Group1SelectedItem);
             g1.Remove(Group1SelectedItem);
         }
