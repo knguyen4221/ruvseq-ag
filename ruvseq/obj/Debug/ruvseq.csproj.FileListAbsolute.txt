@@ -80,3 +80,4 @@ U:\RUVSeq\ruvseq-ag\ruvseq\obj\Debug\ruvseq.csproj.GenerateResource.Cache
 U:\RUVSeq\ruvseq-ag\ruvseq\obj\Debug\ruvseq.csproj.CoreCompileInputs.cache
 U:\RUVSeq\ruvseq-ag\ruvseq\obj\Debug\ruvseq.exe
 U:\RUVSeq\ruvseq-ag\ruvseq\obj\Debug\ruvseq.pdb
+C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\CommonServiceLocator.dll

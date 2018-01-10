@@ -18,7 +18,7 @@ namespace ruvseq
         private ObservableCollection<string> vm_g1, vm_g2;
         private string vm_outputPrefix, vm_inputFile, vm_result;
         private string _selectedItem1, _selectedItem2;
-        private string _outputDir = Directory.GetCurrentDirectory();
+
 
         private ICommand _runRUVSeqCommand;
         private ICommand _g1doubleClickCommand;
@@ -126,19 +126,6 @@ namespace ruvseq
                 {
                     this.vm_result = value;
                     RaisePropertyChanged("Result");
-                }
-            }
-        }
-
-        public string OutputDirectory
-        {
-            get { return this._outputDir; }
-            set
-            {
-                if(value != this._outputDir)
-                {
-                    this._outputDir = value;
-                    RaisePropertyChanged("OutputDirectory");
                 }
             }
         }

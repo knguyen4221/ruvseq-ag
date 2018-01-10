@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ruvseq"
         xmlns:deseq2="clr-namespace:ruvseq.DESeq2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="" Height="350" Width="525">
     <Window.Resources>
         <DataTemplate DataType="{x:Type local:RUVSeqViewModel}">
             <local:RUVSeqView/>
@@ -21,9 +21,9 @@
         </DataTemplate>
     </Window.Resources>
     <Canvas>
-        <Menu HorizontalAlignment="Left" Height="20" VerticalAlignment="Bottom" Width="1050" Margin="0,0,-533,239">
-            <MenuItem Header="File">
-            </MenuItem>
+        <Menu HorizontalAlignment="Left" Height="20" VerticalAlignment="Bottom" Width="525" Margin="0,0,-533,239">
+            <!--<MenuItem Header="File">
+            </MenuItem>-->
             <MenuItem x:Name="modes" Header="Modes" ItemsSource="{Binding PageViewModels}" ItemTemplate="{StaticResource PageTemplate}">
                 <!--<MenuItem Header ="RUVSeq" IsCheckable="True" IsChecked="True" Command="{Binding ChangePageCommand}"
                           CommandParameter="{Binding }"></MenuItem>
@@ -32,35 +32,4 @@
         </Menu>
         <ContentControl Content="{Binding CurrentPageViewModel}"/>
     </Canvas>
-    <!--<Window.Resources>
-        <DataTemplate DataType="{x:Type local:RUVSeqModel}"></DataTemplate>
-    </Window.Resources>
-    <Window.CommandBindings>
-        <CommandBinding Command="Open" CanExecute="open_CanExecute" Executed="open_Executed"/>
-    </Window.CommandBindings>
-    <Window.InputBindings>
-        <KeyBinding Command="Open" Key="O" Modifiers="Ctrl"/>
-    </Window.InputBindings>-->
-    <!--<Canvas>
-        <Menu HorizontalAlignment="Left" Height="20" VerticalAlignment="Bottom" Width="1050" Margin="0,0,0,300">
-            <MenuItem Header="File">
-            </MenuItem>
-            <MenuItem x:Name="modes" Header="Modes">
-                <MenuItem Header ="RUVSeq" IsCheckable="True" IsChecked="True" Click="mode_Click"></MenuItem>
-                <MenuItem Header= "DESeq" IsCheckable="True" IsChecked="False" Click="mode_Click"></MenuItem>
-            </MenuItem>
-        </Menu>
-        <ListBox x:Name="group1" Height="153" Canvas.Top="68" Width="131" Canvas.Left="10" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True"
-                 SelectionMode="Extended" MouseDoubleClick="group1_doubleClick"/>
-        <ListBox x:Name="group2" Height="153" Canvas.Left="146" Canvas.Top="68" Width="136" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True"
-                 SelectionMode="Extended"/>
-        <Button x:Name="ruvseq_start" Content="Go" Canvas.Left="10" Canvas.Top="246" Width="75"
-                Click="ruvseq_Click"/>
-        <Label Content="Group 2" Canvas.Left="146" Canvas.Top="42"/>
-        <Label Content="Group 1" Canvas.Top="42" Canvas.Left="10"/>
-        <TextBox x:Name="outputFileName" Text="Output prefix" Height="15" Width="107" Canvas.Left="10" Canvas.Top="226" FontSize="10"/>
-        <TextBlock TextWrapping="Wrap" Text="RUVSeq" Canvas.Top="25" Canvas.Left="10"/>
-        <Button Content="Open matrix" Command="Open" Canvas.Left="10" Canvas.Top="271" Width="75"/>
-        <Label x:Name="result" Content="" Canvas.Left="287" Canvas.Top="68" Height="241" Width="220"/>
-    </Canvas>-->
 </Window>

@@ -17,7 +17,6 @@ namespace ruvseq.DESeq2
         private string _colDataInput;
         private string _countsInput;
         private string _outputPrefix = "Output Prefix";
-        private string _outputDir = Directory.GetCurrentDirectory();
         private string _result = "";
 
         private ICommand _specifyOutputCommand;
@@ -66,19 +65,6 @@ namespace ruvseq.DESeq2
                 {
                     _outputPrefix = value;
                     RaisePropertyChanged("OutputPrefix");
-                }
-            }
-        }
-
-        public string OutputDirectory
-        {
-            get { return _outputDir; }
-            set
-            {
-                if (value != _outputDir)
-                {
-                    _outputDir = value;
-                    RaisePropertyChanged("OutputDirectory");
                 }
             }
         }

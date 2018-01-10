@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace ruvseq
     {
         private string _name;
         private bool _isSelected;
+        private string _outputDir = Directory.GetCurrentDirectory();
         public string Name
         {
             get { return _name; }
@@ -33,6 +35,18 @@ namespace ruvseq
                 {
                     _isSelected = value;
                     RaisePropertyChanged("IsSelected");
+                }
+            }
+        }
+        public string OutputDirectory
+        {
+            get { return this._outputDir; }
+            set
+            {
+                if (value != this._outputDir)
+                {
+                    this._outputDir = value;
+                    RaisePropertyChanged("OutputDirectory");
                 }
             }
         }

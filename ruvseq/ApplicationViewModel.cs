@@ -63,6 +63,7 @@ namespace ruvseq
 
         private void ChangeViewModel(ModeViewModel viewModel)
         {
+            viewModel.OutputDirectory = CurrentPageViewModel.OutputDirectory;
             CurrentPageViewModel = viewModel;
             foreach(var vm in PageViewModels)
             {
