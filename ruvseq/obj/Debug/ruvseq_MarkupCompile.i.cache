@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 U:\RUVSeq\ruvseq-ag\ruvseq\App.xaml
-3-463799853
+4292381709
 
-181319020993
+21873633176
 78-1693957057
-ApplicationView.xaml;DESeq2\DESeq2View.xaml;RUVSeq\RUVSeqView.xaml;
+ApplicationView.xaml;DESeq2\DESeq2View.xaml;RUVSeq\RUVSeqView.xaml;Volcano\VolPlotView.xaml;
 
-True
+False
 

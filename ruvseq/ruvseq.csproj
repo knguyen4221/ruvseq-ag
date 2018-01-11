@@ -104,6 +104,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Volcano\VolcanoPlotModel.cs" />
+    <Compile Include="Volcano\VolcanoPlotViewModel.cs" />
+    <Compile Include="Volcano\VolPlotView.xaml.cs">
+      <DependentUpon>VolPlotView.xaml</DependentUpon>
+    </Compile>
     <Page Include="ApplicationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -134,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RUVSeq\RUVSeqView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Volcano\VolPlotView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

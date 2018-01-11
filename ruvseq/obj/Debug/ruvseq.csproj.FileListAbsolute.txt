@@ -81,3 +81,5 @@ U:\RUVSeq\ruvseq-ag\ruvseq\obj\Debug\ruvseq.csproj.CoreCompileInputs.cache
 U:\RUVSeq\ruvseq-ag\ruvseq\obj\Debug\ruvseq.exe
 U:\RUVSeq\ruvseq-ag\ruvseq\obj\Debug\ruvseq.pdb
 C:\Users\Ken\workspace\ruvseq-ag\ruvseq\bin\Debug\CommonServiceLocator.dll
+U:\RUVSeq\ruvseq-ag\ruvseq\obj\Debug\Volcano\VolPlotView.g.cs
+U:\RUVSeq\ruvseq-ag\ruvseq\obj\Debug\Volcano\VolPlotView.baml
