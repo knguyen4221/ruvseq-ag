@@ -10,11 +10,8 @@ if(!require(DESeq2)){
   biocLite("DESeq2")
 }
 
-args = commandArgs(trailingOnly=TRUE)
 
-original.parameters <- par(no.readonly = TRUE)
-
-matrix <- read.table(args[1], header=TRUE,sep=",", fill=TRUE, row.names = 1)
+matrix <- read.table("C:\\Users\\Ken\\workspace\\ruvseq-ag\\data\\R324R328_output.csv", header=TRUE,sep=",", fill=TRUE, row.names = 1)
 matrix <- matrix + 1
 matrix <- round(matrix, 0)
 filter <- apply(matrix, 1, function(x) length(x[x>5])>=2)
@@ -22,7 +19,7 @@ filtered <- matrix[filter,]
 genes <- rownames(filtered)[grep("^ENS", rownames(filtered))]
 spikes <- rownames(filtered)[grep("^ERCC", rownames(filtered))]
 
-x <- as.factor(strsplit(args[2], ",")[[1]])
+x <- as.factor(c('a','b','c','d'))
 set <- newSeqExpressionSet(as.matrix(filtered), phenoData = data.frame(x, row.names=colnames(filtered)))
 colors <- brewer.pal(4, "Set1")
 
@@ -54,7 +51,7 @@ set <- betweenLaneNormalization(set, which="upper")
 #dev.off()
 #Estimating factors of unwanted variation using control genes
 set1 <- RUVg(set, spikes, k=1)
-pData(set1)
+#pData(set1)
 #spikeInDataFrame <- as.data.frame(pData(set1))
 #write.csv(spikeInDataFrame,  paste(args[3],"\\",args[4],"_phenotypicData_spikeInNorm.csv", sep=""))
 write.csv(normCounts(set1), paste(args[3],"\\",args[4],"_normalizedCounts_spikeInNorm.csv", sep=""))

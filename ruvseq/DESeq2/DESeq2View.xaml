@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="ruvseq.DESeq2.DESeq2View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ruvseq.DESeq2"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="525">
+    <UserControl.Resources>
+    </UserControl.Resources>
+    <Canvas>
+        <TextBlock TextWrapping="Wrap" Text="DESeq" Canvas.Top="25" Canvas.Left="10"/>
+        <TextBox Height="20" Canvas.Left="10" Text="{Binding ColumnDataFile}" Canvas.Top="72" Width="120" IsReadOnly="True"/>
+        <TextBox Height="20" Canvas.Left="10" Text="{Binding CountsDataFile}" Canvas.Top="97" Width="120" IsReadOnly="True"/>
+        <Button Content="Open colData" Canvas.Left="135" Canvas.Top="72" Width="82" Command="{Binding Path=OpenColData}"/>
+        <Button Content="Open counts" Canvas.Left="135" Canvas.Top="97" Width="82" Command="{Binding Path=OpenCountsData}"/>
+        <TextBox Height="23" Canvas.Left="10" Text="{Binding OutputPrefix}" Canvas.Top="122" Width="120"/>
+        <TextBox Height="24" Canvas.Left="287" Text="{Binding OutputDirectory}" Canvas.Top="68" Width="132"/>
+        <Button Content="Specify output directory" Command="{Binding Path=SpecifyOutput}" Canvas.Left="287" Canvas.Top="97" Width="132"></Button>
+        <Button Content="Go" Command ="{Binding Path=RunDESeq}" Canvas.Left="10" Canvas.Top="150" Width="75"/>
+        <Label x:Name="result" Content="{Binding Result}" Canvas.Left="287" Canvas.Top="122" Height="144" Width="192"/>
+    </Canvas>
+</UserControl>
