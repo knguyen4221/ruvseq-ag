@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ruvseq"
         xmlns:deseq2="clr-namespace:ruvseq.DESeq2"
+        xmlns:volplot="clr-namespace:ruvseq.Volcano"
         mc:Ignorable="d"
         Title="" Height="350" Width="525">
     <Window.Resources>
@@ -13,6 +14,9 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type deseq2:DESeq2ViewModel}">
             <deseq2:DESeq2View/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type volplot:VolcanoPlotViewModel}">
+            <volplot:VolPlotView/>
         </DataTemplate>
         <DataTemplate x:Key="PageTemplate">
             <MenuItem Header="{Binding Name}" IsCheckable="True" IsChecked="{Binding IsSelected}" 

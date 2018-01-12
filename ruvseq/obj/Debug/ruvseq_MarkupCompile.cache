@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-U:\RUVSeq\ruvseq-ag\ruvseq\obj\Debug\
+C:\Users\Ken\workspace\ruvseq-ag\ruvseq\obj\Debug\
 ruvseq
 none
 false
 DEBUG;TRACE
-U:\RUVSeq\ruvseq-ag\ruvseq\App.xaml
+C:\Users\Ken\workspace\ruvseq-ag\ruvseq\App.xaml
 4292381709
 
 171198911059
-78-1693957057
+78-1195275968
 ApplicationView.xaml;DESeq2\DESeq2View.xaml;RUVSeq\RUVSeqView.xaml;Volcano\VolPlotView.xaml;
 
 False

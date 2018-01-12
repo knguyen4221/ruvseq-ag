@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using System.Windows.Forms;
 
@@ -12,6 +7,7 @@ namespace ruvseq.Volcano
     public class VolcanoPlotViewModel : ModeViewModel
     {
         private string _inputFile, _result;
+        private string _outputPrefix = "prefix";
         private bool _displayNames;
         private VolcanoPlotModel vpModel;
 
@@ -21,8 +17,21 @@ namespace ruvseq.Volcano
         {
             Name = "Volcano Plots";
             IsSelected = false;
+            _displayNames = false;
         }
 
+        public string OutputPrefix
+        {
+            get { return _outputPrefix; }
+            set
+            {
+                if(value != _outputPrefix)
+                {
+                    _outputPrefix = value;
+                    RaisePropertyChanged("OutputPrefix");
+                }
+            }
+        }
         public string InputFile
         {
             get { return _inputFile; }
@@ -86,7 +95,7 @@ namespace ruvseq.Volcano
         private void run_r()
         {
             Result = "Loading";
-            vpModel = new VolcanoPlotModel(InputFile, OutputDirectory, DisplayNames);
+            vpModel = new VolcanoPlotModel(InputFile, OutputDirectory, DisplayNames, OutputPrefix);
             Result = vpModel.make_plot();
         }
 

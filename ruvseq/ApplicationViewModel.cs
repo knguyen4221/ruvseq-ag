@@ -19,6 +19,7 @@ namespace ruvseq
         {
             PageViewModels.Add(new RUVSeqViewModel());
             PageViewModels.Add(new DESeq2.DESeq2ViewModel());
+            PageViewModels.Add(new Volcano.VolcanoPlotViewModel());
 
             CurrentPageViewModel = PageViewModels[0];
         }

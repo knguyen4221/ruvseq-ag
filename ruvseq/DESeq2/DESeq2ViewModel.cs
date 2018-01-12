@@ -19,7 +19,6 @@ namespace ruvseq.DESeq2
         private string _outputPrefix = "Output Prefix";
         private string _result = "";
 
-        private ICommand _specifyOutputCommand;
         private ICommand _openColData;
         private ICommand _openCountsData;
         private ICommand _run_deseq;
@@ -106,17 +105,7 @@ namespace ruvseq.DESeq2
             }
         }
 
-        public ICommand SpecifyOutput
-        {
-            get
-            {
-                if (this._specifyOutputCommand == null)
-                {
-                    this._specifyOutputCommand = new RelayCommand(specifyOutput);
-                }
-                return this._specifyOutputCommand;
-            }
-        }
+
 
         public ICommand RunDESeq
         {
@@ -151,15 +140,6 @@ namespace ruvseq.DESeq2
             if(ofd.ShowDialog() == DialogResult.OK)
             {
                 ColumnDataFile = ofd.FileName;
-            }
-        }
-
-        private void specifyOutput()
-        {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-            {
-                OutputDirectory = fbd.SelectedPath;
             }
         }
 

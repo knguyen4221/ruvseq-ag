@@ -18,9 +18,9 @@ namespace ruvseq.Volcano
     /// <summary>
     /// Interaction logic for Volcano_Plots.xaml
     /// </summary>
-    public partial class Volcano_Plots : UserControl
+    public partial class VolPlotView : UserControl
     {
-        public Volcano_Plots()
+        public VolPlotView()
         {
             InitializeComponent();
         }

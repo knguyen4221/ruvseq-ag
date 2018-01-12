@@ -24,7 +24,6 @@ namespace ruvseq
         private ICommand _g1doubleClickCommand;
         private ICommand _g2doubleClickCommand;
         private ICommand _openFileCommand { get; set; }
-        private ICommand _specifyOutputCommand;
         
 
         public RUVSeqModel ruvseq_model
@@ -130,18 +129,6 @@ namespace ruvseq
             }
         }
 
-        public ICommand SpecifyOutput
-        {
-            get
-            {
-                if(this._specifyOutputCommand == null)
-                {
-                    this._specifyOutputCommand = new RelayCommand(specifyOutput);
-                }
-                return this._specifyOutputCommand;
-            }
-        }
-
         public ICommand OpenMatrixCommand
         {
             get
@@ -231,14 +218,7 @@ namespace ruvseq
             }
         }
 
-        private void specifyOutput()
-        {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if(fbd.ShowDialog() == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-            {
-                OutputDirectory = fbd.SelectedPath;
-            }
-        }
+
 
         private string[] ReadCSV(string fileName)
         {
