@@ -9,15 +9,15 @@
     <UserControl.Resources>
     </UserControl.Resources>
     <Canvas>
-        <TextBlock TextWrapping="Wrap" Text="DESeq" Canvas.Top="25" Canvas.Left="10"/>
-        <TextBox Height="20" Canvas.Left="10" Text="{Binding ColumnDataFile}" Canvas.Top="72" Width="120" IsReadOnly="True"/>
-        <TextBox Height="20" Canvas.Left="10" Text="{Binding CountsDataFile}" Canvas.Top="97" Width="120" IsReadOnly="True"/>
-        <Button Content="Open colData" Canvas.Left="135" Canvas.Top="72" Width="82" Command="{Binding Path=OpenColData}"/>
-        <Button Content="Open counts" Canvas.Left="135" Canvas.Top="97" Width="82" Command="{Binding Path=OpenCountsData}"/>
-        <TextBox Height="23" Canvas.Left="10" Text="{Binding OutputPrefix}" Canvas.Top="122" Width="120"/>
-        <TextBox Height="24" Canvas.Left="287" Text="{Binding OutputDirectory}" Canvas.Top="68" Width="132"/>
-        <Button Content="Specify output directory" Command="{Binding Path=SpecifyOutput}" Canvas.Left="287" Canvas.Top="97" Width="132"></Button>
-        <Button Content="Go" Command ="{Binding Path=RunDESeq}" Canvas.Left="10" Canvas.Top="150" Width="75"/>
+        <TextBlock TextWrapping="Wrap" Text="DESeq" Canvas.Top="10" Canvas.Left="10"/>
+        <TextBox Height="20" Canvas.Left="10" Text="{Binding ColumnDataFile}" Canvas.Top="31" Width="120" IsReadOnly="True"/>
+        <TextBox Height="20" Canvas.Left="10" Text="{Binding CountsDataFile}" Canvas.Top="56" Width="120" IsReadOnly="True"/>
+        <Button Content="Open colData" Canvas.Left="135" Canvas.Top="31" Width="82" Command="{Binding Path=OpenColData}"/>
+        <Button Content="Open counts" Canvas.Left="135" Canvas.Top="56" Width="82" Command="{Binding Path=OpenCountsData}"/>
+        <TextBox Height="23" Canvas.Left="10" Text="{Binding OutputPrefix}" Canvas.Top="81" Width="120"/>
+        <TextBox Height="24" Canvas.Left="249" Text="{Binding OutputDirectory}" Canvas.Top="31" Width="132"/>
+        <Button Content="Specify output directory" Command="{Binding Path=SpecifyOutput}" Canvas.Left="249" Canvas.Top="56" Width="132"></Button>
+        <Button Content="Go" Command ="{Binding Path=RunDESeq}" Canvas.Left="10" Canvas.Top="109" Width="75"/>
         <Label x:Name="result" Content="{Binding Result}" Canvas.Left="287" Canvas.Top="122" Height="144" Width="192"/>
     </Canvas>
 </UserControl>

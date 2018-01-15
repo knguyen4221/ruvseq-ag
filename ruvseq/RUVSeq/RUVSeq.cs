@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,14 @@ namespace ruvseq
 
         public RUVSeq(string inputFile, string outputFile, string outputFileDirectory)
         {
+            if (String.IsNullOrEmpty(outputFileDirectory))
+                throw new ArgumentException();
+
+            if (!File.Exists(inputFile))
+                throw new FileNotFoundException();
+
+
+
             var parse = inputFile.Split('\\');
             this.inputFile = string.Join("\\\\", parse);
             this.outputFile = outputFile;
@@ -33,6 +42,9 @@ namespace ruvseq
 
         public string run_ruvseq(List<string> group1, List<string> group2)
         {
+
+            if (group1.Count == 0 || group2.Count == 0)
+                throw new ArgumentException("Data needs to split into two groups");
 
             try
             {

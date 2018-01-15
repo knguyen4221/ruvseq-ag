@@ -14,6 +14,7 @@ namespace ruvseq
 
         private ModeViewModel _currentPageViewModel;
         private List<ModeViewModel> _pageViewModels;
+        
 
         public ApplicationViewModel()
         {
@@ -23,6 +24,8 @@ namespace ruvseq
 
             CurrentPageViewModel = PageViewModels[0];
         }
+
+
 
         public ModeViewModel CurrentPageViewModel
         {

@@ -10,16 +10,18 @@
         <DataTemplate DataType="{x:Type local:VolcanoPlotViewModel}" ></DataTemplate>
     </UserControl.Resources>
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="17,54,0,0" Text="{Binding InputFile}" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Open DESeq" Command="{Binding Path=OpenInputFile}" HorizontalAlignment="Left" Margin="142,57,0,0" VerticalAlignment="Top" Width="74"/>
-        <Button Content="Run" Command="{Binding Path=MakePlots}" HorizontalAlignment="Left" Margin="17,175,0,0" VerticalAlignment="Top" Width="41" Height="20"/>
-        <CheckBox Content="Display Names" IsChecked="{Binding DisplayNames}" HorizontalAlignment="Left" Margin="17,82,0,0" VerticalAlignment="Top"/>
-        <Canvas HorizontalAlignment="Left" Height="290" Margin="256,0,0,0" VerticalAlignment="Top" Width="259"/>
-        <Label Content="{Binding Result}" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Height="90" Width="246"/>
-        <TextBox Text="{Binding OutputDirectory}" Margin="17,102,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162">
+        <TextBox HorizontalAlignment="Left" MinHeight="23" Margin="12,41,0,0" Text="{Binding InputFile}" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Open DESeq" Command="{Binding Path=OpenInputFile}" HorizontalAlignment="Left" Margin="137,41,0,0" VerticalAlignment="Top" MinWidth="74" MinHeight="23"/>
+        <Button Content="Run" Command="{Binding Path=MakePlots}" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Width="41" MinHeight="20"/>
+        <CheckBox Content="Display Names" IsChecked="{Binding DisplayNames}" HorizontalAlignment="Left" Margin="12,69,0,0" VerticalAlignment="Top"/>
+        <Canvas HorizontalAlignment="Left" MinHeight="300" Margin="256,0,0,0" VerticalAlignment="Top" MinWidth="269">
+            <Image Source="{Binding OutputPlot}" Height="300" Width="269"></Image>
+        </Canvas>
+        <Label Content="{Binding Result}" HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top" MinHeight="90" MinWidth="246" Height="100" Width="251"/>
+        <TextBox Text="{Binding OutputDirectory}" Margin="12,89,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162">
         </TextBox>
-        <Button Content="Specify output directory" Command="{Binding Path=SpecifyOutput}"  HorizontalAlignment="Left" Margin="17,125,0,0" VerticalAlignment="Top" Width="141"></Button>
-        <Label Content="Volcano Plots" HorizontalAlignment="Left" Margin="20,23,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="17,150,0,0" TextWrapping="Wrap" Text="{Binding OutputPrefix}" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Specify output directory" Command="{Binding Path=SpecifyOutput}"  HorizontalAlignment="Left" Margin="12,112,0,0" VerticalAlignment="Top" MinWidth="141"></Button>
+        <Label Content="Volcano Plots" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MinWidth="95"/>
+        <TextBox HorizontalAlignment="Left" MinHeight="20" Margin="12,137,0,0" TextWrapping="Wrap" Text="{Binding OutputPrefix}" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </UserControl>

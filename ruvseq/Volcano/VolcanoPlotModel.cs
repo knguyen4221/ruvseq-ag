@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,18 @@ namespace ruvseq.Volcano
         private bool displayNames;
         public VolcanoPlotModel(string inputFile, string outputDir, bool DisplayNames, string prefix)
         {
+            if (String.IsNullOrEmpty(outputDir))
+                throw new ArgumentException();
+
+            if (!File.Exists(inputFile))
+                throw new FileNotFoundException();
+
+            FileAttributes attr = File.GetAttributes(inputFile);
+            if(attr.HasFlag(FileAttributes.Directory))
+            {
+                throw new FileNotFoundException();
+            }
+
             string[] parse;
             this.inputFile = inputFile;
             parse = this.inputFile.Split('\\');

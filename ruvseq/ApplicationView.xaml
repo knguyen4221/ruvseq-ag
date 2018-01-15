@@ -7,7 +7,8 @@
         xmlns:deseq2="clr-namespace:ruvseq.DESeq2"
         xmlns:volplot="clr-namespace:ruvseq.Volcano"
         mc:Ignorable="d"
-        Title="" Height="350" Width="525">
+        x:Name="appView"
+        Title="RUVSeq" Height="350" Width="525" MinHeight="350" MinWidth="525">
     <Window.Resources>
         <DataTemplate DataType="{x:Type local:RUVSeqViewModel}">
             <local:RUVSeqView/>
@@ -24,16 +25,24 @@
                       CommandParameter="{Binding }"></MenuItem>
         </DataTemplate>
     </Window.Resources>
-    <Canvas>
-        <Menu HorizontalAlignment="Left" Height="20" VerticalAlignment="Bottom" Width="525" Margin="0,0,-533,239">
-            <!--<MenuItem Header="File">
-            </MenuItem>-->
-            <MenuItem x:Name="modes" Header="Modes" ItemsSource="{Binding PageViewModels}" ItemTemplate="{StaticResource PageTemplate}">
-                <!--<MenuItem Header ="RUVSeq" IsCheckable="True" IsChecked="True" Command="{Binding ChangePageCommand}"
-                          CommandParameter="{Binding }"></MenuItem>
-                <MenuItem Header= "DESeq" IsCheckable="True" IsChecked="False"></MenuItem>-->
-            </MenuItem>
-        </Menu>
-        <ContentControl Content="{Binding CurrentPageViewModel}"/>
-    </Canvas>
+    <Grid Name="rootGrid" SizeChanged="OnSizeChanged">
+        <Grid.LayoutTransform>
+            <ScaleTransform x:Name="scale_transform"
+                            CenterX="0"
+                            CenterY="0"
+                            />
+        </Grid.LayoutTransform>
+        <Grid>
+            <Menu HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" MinWidth="525" >
+                <!--<MenuItem Header="File">
+                </MenuItem>-->
+                <MenuItem x:Name="modes" Header="Modes" ItemsSource="{Binding PageViewModels}" ItemTemplate="{StaticResource PageTemplate}">
+                    <!--<MenuItem Header ="RUVSeq" IsCheckable="True" IsChecked="True" Command="{Binding ChangePageCommand}"
+                              CommandParameter="{Binding }"></MenuItem>
+                    <MenuItem Header= "DESeq" IsCheckable="True" IsChecked="False"></MenuItem>-->
+                </MenuItem>
+            </Menu>
+            <ContentControl Content="{Binding CurrentPageViewModel}" Margin="0,20,0,0"/>
+        </Grid>
+    </Grid>
 </Window>

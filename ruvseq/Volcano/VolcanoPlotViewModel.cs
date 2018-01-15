@@ -7,6 +7,7 @@ namespace ruvseq.Volcano
     public class VolcanoPlotViewModel : ModeViewModel
     {
         private string _inputFile, _result;
+        private string _outputPath = "";
         private string _outputPrefix = "prefix";
         private bool _displayNames;
         private VolcanoPlotModel vpModel;
@@ -18,6 +19,19 @@ namespace ruvseq.Volcano
             Name = "Volcano Plots";
             IsSelected = false;
             _displayNames = false;
+        }
+
+        public string OutputPlot
+        {
+            get { return _outputPath; }
+            set
+            {
+                if(value != _outputPath)
+                {
+                    _outputPath = value;
+                    RaisePropertyChanged("OutputPlot");
+                }
+            }
         }
 
         public string OutputPrefix
@@ -97,6 +111,7 @@ namespace ruvseq.Volcano
             Result = "Loading";
             vpModel = new VolcanoPlotModel(InputFile, OutputDirectory, DisplayNames, OutputPrefix);
             Result = vpModel.make_plot();
+            OutputPlot = string.Format("{0}\\{1}_volcanoplot.png", OutputDirectory, OutputPrefix);
         }
 
         private void openInputFile()

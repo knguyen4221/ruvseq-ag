@@ -27,6 +27,11 @@ namespace ruvseq
             InitializeComponent();
         }
 
+        private void OnSizeChanged(object sender, EventArgs e)
+        {
+            scale_transform.ScaleY = this.ActualHeight / this.MinHeight;
+            scale_transform.ScaleX = this.ActualWidth / this.MinWidth;
+        }
     }
 }
 

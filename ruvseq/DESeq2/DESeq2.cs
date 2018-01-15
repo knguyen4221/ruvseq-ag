@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,12 @@ namespace ruvseq.DESeq2
 
         public DESeq2(string colData, string countsData, string outputPrefix, string outputDirectory)
         {
+            if (String.IsNullOrEmpty(outputDirectory))
+                throw new ArgumentException();
+
+            if (!(File.Exists(colData) && File.Exists(countsData)))
+                throw new FileNotFoundException();
+
             colDataFile = colData;
             countsDataFile = countsData;
             this.outputPrefix = outputPrefix;

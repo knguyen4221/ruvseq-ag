@@ -13,7 +13,7 @@
         </DataTemplate>
     </UserControl.Resources>
     <Canvas>
-        <ListBox x:Name="group1" Height="153" Canvas.Top="68" Width="131" Canvas.Left="10" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True"
+        <ListBox x:Name="group1" Height="153" Canvas.Top="52" Width="131" Canvas.Left="10" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True"
                  SelectionMode="Extended" ItemsSource="{Binding g1}" SelectedItem="{Binding Group1SelectedItem}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -28,7 +28,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="group2" Height="153" Canvas.Left="146" Canvas.Top="68" Width="136" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True"
+        <ListBox x:Name="group2" Height="153" Canvas.Left="146" Canvas.Top="52" Width="136" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True"
                  SelectionMode="Extended" ItemsSource="{Binding g2}" SelectedItem="{Binding Group2SelectedItem}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -43,15 +43,15 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="ruvseq_start" Content="Go" Canvas.Left="10" Canvas.Top="268" Width="75"
+        <Button x:Name="ruvseq_start" Content="Go" Canvas.Left="10" Canvas.Top="240" Width="75"
                 Command="{Binding Path=RunRUVSeqCommand}"/>
-        <Label Content="Group 2" Canvas.Left="146" Canvas.Top="42"/>
-        <Label Content="Group 1" Canvas.Top="42" Canvas.Left="10"/>
-        <TextBox x:Name="outputFileName" Text="{Binding outputPrefix}" Height="17" Width="110" Canvas.Left="10" Canvas.Top="235" FontSize="10"/>
-        <TextBlock TextWrapping="Wrap" Text="RUVSeq" Canvas.Top="25" Canvas.Left="10"/>
-        <Button Content="Open matrix" Command="{Binding Path=OpenMatrixCommand}" Canvas.Left="90" Canvas.Top="268" Width="75"/>
+        <Label Content="Group 2" Canvas.Left="146" Canvas.Top="26"/>
+        <Label Content="Group 1" Canvas.Top="26" Canvas.Left="10"/>
+        <TextBox x:Name="outputFileName" Text="{Binding outputPrefix}" Height="25" Width="120" Canvas.Left="10" Canvas.Top="210" FontSize="10"/>
+        <TextBlock TextWrapping="Wrap" Text="RUVSeq" Canvas.Top="10" Canvas.Left="10"/>
+        <Button Content="Open matrix" Command="{Binding Path=OpenMatrixCommand}" Canvas.Left="90" Canvas.Top="240" Width="75"/>
         <Label x:Name="result" Content="{Binding Group1SelectedItem}" Canvas.Left="287" Canvas.Top="122" Height="144" Width="192"/>
-        <TextBox Height="24" Canvas.Left="287" Text="{Binding OutputDirectory}" Canvas.Top="68" Width="132"/>
-        <Button Content="Specify output directory" Command="{Binding Path=SpecifyOutput}" Canvas.Left="287" Canvas.Top="97" Width="132"></Button>
+        <TextBox Height="24" Canvas.Left="287" Text="{Binding OutputDirectory}" Canvas.Top="52" Width="132"/>
+        <Button Content="Specify output directory" Command="{Binding Path=SpecifyOutput}" Canvas.Left="287" Canvas.Top="81" Width="132"></Button>
     </Canvas>
 </UserControl>
